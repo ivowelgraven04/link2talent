@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
@@ -13,6 +14,7 @@ export const metadata: Metadata = {
 const team = [
   {
     name: "Demi",
+    photo: "/team-demi.png",
     role: "Co-founder — de commerciële motor",
     description:
       "Ik zorg dat opdrachtgevers precies krijgen wat ze nodig hebben. Geen eindeloos zoeken, geen losse gesprekken. Via de app zie je direct de juiste kandidaten en plan je meteen de matches.",
@@ -24,6 +26,7 @@ const team = [
   },
   {
     name: "Anne-Roos",
+    photo: "/team-anne-roos.png",
     role: "Co-founder — de kandidaten-partner",
     description:
       "Ik help bedrijven en professionals elkaar makkelijk te vinden. Ik ben er voor vragen en denk mee. We maken het makkelijk om de juiste match te vinden, met de persoonlijke aandacht die nodig is om het echt goed te laten werken.",
@@ -35,6 +38,7 @@ const team = [
   },
   {
     name: "Lodewijk",
+    photo: "/team-lodewijk.png",
     role: "Partner — de software-expert",
     description:
       "Ik zorg dat onze technologie soepel, veilig en gebruiksvriendelijk werkt zodat jij zonder gedoe kunt verbinden, samenwerken en groeien. Alles wat jij ziet, en wat op de achtergrond draait, is ontworpen voor een eenvoudige en efficiënte ervaring.",
@@ -114,44 +118,55 @@ export default function OverOnsPage() {
                 De mensen achter het platform
               </h2>
             </ScrollReveal>
+
             <div className="grid md:grid-cols-3 gap-6">
               {team.map((member, i) => (
                 <ScrollReveal key={member.name} delay={i * 0.1}>
                   <div
-                    className="rounded-2xl p-8 border h-full flex flex-col gap-5"
+                    className="rounded-2xl border overflow-hidden h-full flex flex-col"
                     style={{ background: "#ffffff", borderColor: "rgba(0,0,0,0.08)" }}
                   >
-                    <div
-                      className="w-14 h-14 rounded-2xl flex items-center justify-center text-white font-bold text-xl"
-                      style={{ background: "#007BFF" }}
-                    >
-                      {member.name[0]}
+                    {/* Photo */}
+                    <div className="relative w-full aspect-square overflow-hidden">
+                      <Image
+                        src={member.photo}
+                        alt={member.name}
+                        fill
+                        style={{ objectFit: "cover", objectPosition: "center top" }}
+                        sizes="(max-width: 768px) 100vw, 33vw"
+                      />
+                      {/* subtle gradient overlay at bottom */}
+                      <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-white/20 to-transparent" />
                     </div>
-                    <div>
-                      <h3 className="text-[#09090b] font-bold text-lg tracking-tight">
-                        {member.name}
-                      </h3>
-                      <p className="text-[#007BFF] text-xs font-semibold tracking-[0.1em] uppercase mt-1">
-                        {member.role}
+
+                    {/* Content */}
+                    <div className="flex flex-col gap-4 p-7 flex-1">
+                      <div>
+                        <h3 className="text-[#09090b] font-bold text-xl tracking-tight">
+                          {member.name}
+                        </h3>
+                        <p className="text-[#007BFF] text-xs font-semibold tracking-[0.1em] uppercase mt-1">
+                          {member.role}
+                        </p>
+                      </div>
+                      <p className="text-[#4f4f4f] text-sm leading-relaxed flex-1">
+                        {member.description}
                       </p>
-                    </div>
-                    <p className="text-[#4f4f4f] text-sm leading-relaxed flex-1">
-                      {member.description}
-                    </p>
-                    <div
-                      className="flex flex-col gap-2 pt-4"
-                      style={{ borderTop: "1px solid rgba(0,0,0,0.06)" }}
-                    >
-                      {member.values.map((v) => (
-                        <div key={v} className="flex items-start gap-2.5">
-                          <CheckCircle
-                            size={14}
-                            weight="fill"
-                            className="text-[#007BFF] mt-0.5 shrink-0"
-                          />
-                          <span className="text-[#09090b] text-xs">{v}</span>
-                        </div>
-                      ))}
+                      <div
+                        className="flex flex-col gap-2 pt-4"
+                        style={{ borderTop: "1px solid rgba(0,0,0,0.06)" }}
+                      >
+                        {member.values.map((v) => (
+                          <div key={v} className="flex items-start gap-2.5">
+                            <CheckCircle
+                              size={14}
+                              weight="fill"
+                              className="text-[#007BFF] mt-0.5 shrink-0"
+                            />
+                            <span className="text-[#09090b] text-xs">{v}</span>
+                          </div>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 </ScrollReveal>
@@ -161,29 +176,46 @@ export default function OverOnsPage() {
             {/* Ivo credit */}
             <ScrollReveal className="mt-6">
               <div
-                className="rounded-2xl p-8 border"
+                className="rounded-2xl border overflow-hidden"
                 style={{ background: "#ffffff", borderColor: "rgba(0,0,0,0.08)" }}
               >
-                <h3 className="text-[#09090b] font-bold text-lg tracking-tight mb-1">
-                  Ivo Welgraven — onze webheld
-                </h3>
-                <p className="text-[#007BFF] text-xs font-semibold tracking-[0.1em] uppercase mb-4">
-                  Partner — De Proces Designers
-                </p>
-                <p className="text-[#4f4f4f] text-sm leading-relaxed">
-                  Ivo heeft deze hele website voor ons gemaakt via De Proces
-                  Designers. Zonder hem had dit platform er niet zo strak en
-                  gebruiksvriendelijk uitgezien. Een groot dank aan Ivo en zijn
-                  team voor de perfecte samenwerking.
-                </p>
-                <a
-                  href="https://deprocesdesigners.nl/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 mt-4 text-[#007BFF] text-sm font-semibold hover:underline"
-                >
-                  deprocesdesigners.nl <ArrowRight size={13} weight="bold" />
-                </a>
+                <div className="flex flex-col md:flex-row">
+                  {/* Photo */}
+                  <div className="relative w-full md:w-56 shrink-0 aspect-square md:aspect-auto">
+                    <Image
+                      src="/team-ivo.png"
+                      alt="Ivo Welgraven"
+                      fill
+                      style={{ objectFit: "cover", objectPosition: "center top" }}
+                      sizes="(max-width: 768px) 100vw, 224px"
+                    />
+                  </div>
+                  {/* Content */}
+                  <div className="p-8 flex flex-col justify-center gap-3">
+                    <div>
+                      <h3 className="text-[#09090b] font-bold text-xl tracking-tight">
+                        Ivo Welgraven
+                      </h3>
+                      <p className="text-[#007BFF] text-xs font-semibold tracking-[0.1em] uppercase mt-1">
+                        Partner — De Proces Designers — onze webheld
+                      </p>
+                    </div>
+                    <p className="text-[#4f4f4f] text-sm leading-relaxed max-w-[560px]">
+                      Ivo heeft deze hele website voor ons gemaakt via De Proces
+                      Designers. Zonder hem had dit platform er niet zo strak en
+                      gebruiksvriendelijk uitgezien. Een groot dank aan Ivo en zijn
+                      team voor de perfecte samenwerking.
+                    </p>
+                    <a
+                      href="https://deprocesdesigners.nl/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 text-[#007BFF] text-sm font-semibold hover:underline w-fit"
+                    >
+                      deprocesdesigners.nl <ArrowRight size={13} weight="bold" />
+                    </a>
+                  </div>
+                </div>
               </div>
             </ScrollReveal>
           </div>
