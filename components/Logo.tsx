@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 
-const sizeMap = { sm: { h: 36, w: 144 }, md: { h: 40, w: 160 }, lg: { h: 48, w: 192 } };
+const sizeMap = { sm: { h: 48, w: 120 }, md: { h: 52, w: 130 }, lg: { h: 60, w: 150 } };
 
 export default function Logo({ size = "md" }: { size?: "sm" | "md" | "lg" }) {
   const { h, w } = sizeMap[size];
