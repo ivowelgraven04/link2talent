@@ -31,8 +31,7 @@ export default function Footer() {
             <p className="text-white/30 text-xs font-semibold tracking-[0.18em] uppercase mb-5">Diensten</p>
             <div className="flex flex-col gap-3">
               <Link href="/diensten" className="text-white/55 hover:text-white text-sm transition-colors">Remote Setters</Link>
-              <Link href="/diensten" className="text-white/55 hover:text-white text-sm transition-colors">Closers</Link>
-              <Link href="/diensten" className="text-white/55 hover:text-white text-sm transition-colors">Leadgeneratie</Link>
+              <a href="https://link2leads.nl/" target="_blank" rel="noopener noreferrer" className="text-white/55 hover:text-white text-sm transition-colors">Leadgeneratie</a>
             </div>
           </div>
           <div>
