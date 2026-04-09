@@ -15,7 +15,8 @@ const services = [
     icon: UserCircle,
     title: "Remote Setters",
     subtitle: "Seat model — vanaf €295 p/m",
-    description: "Wij koppelen je aan een remote setter die direct aan de slag kan. Geen vacatures, geen gedoe. Via de app zie je alle kandidaten, check je skills en ervaring en plan je direct de juiste match. Je setter plant gesprekken voor jouw team, zodat jij kunt focussen op closen.",
+    description: "Wij koppelen je aan een remote setter die direct aan de slag kan. Geen vacatures, geen gedoe.\n\nVia de app zie je alle kandidaten, check je skills en ervaring en plan je direct de juiste match. Je setter plant gesprekken voor jouw team, zodat jij kunt focussen op closen.",
+    preItems: "Waar wij voor zorgen:",
     items: ["Direct inzetbare setters", "Flexibel op- en afschalen via de app", "Contract, betaling en communicatie op één plek"],
     result: "Gesprekken gepland, leads opgevolgd en jouw pipeline gevuld.",
   },
@@ -24,6 +25,7 @@ const services = [
     title: "Closers",
     subtitle: "Op aanvraag",
     description: "Wil je naast een setter ook iemand die deals afrondt? Wij koppelen je aan ervaren closers die passen bij je aanbod en team.",
+    preItems: null,
     items: ["Direct beschikbare closers", "Integratie met de bestaande pipeline", "Volledige rapportage via de app"],
     result: "Gesloten deals, sneller groeiend resultaat.",
   },
@@ -32,6 +34,7 @@ const services = [
     title: "Leadgeneratie via Link2Leads",
     subtitle: "Extra volume",
     description: "Voor wie extra volume nodig heeft, koppelen wij e-mailcampagnes aan je team. Alles wordt afgestemd op je ideale klant en direct geïntegreerd in de app.",
+    preItems: null,
     items: ["Gerichte e-mailcampagnes", "Volledige opvolging en rapportage", "Naadloze integratie met jouw team en pipeline"],
     result: "Meer relevante leads, sneller in je agenda.",
   },
@@ -68,16 +71,16 @@ export default function DienstenPage() {
                 Remote Salesprofessionals via de app
               </h1>
               <p className="text-white/60 text-[1.05rem] leading-relaxed mb-4">
-                Alles wat je nodig hebt om direct salescapaciteit te bouwen.
+                Alles wat je nodig hebt om direct salescapaciteit te bouwen
               </p>
               <p className="text-white/50 text-[0.95rem] leading-relaxed mb-8">
                 Wij leveren geen losse hires. Wij zorgen dat je een complete salesflow krijgt, volledig geïntegreerd in de app. Van intake tot actieve matches en doorlopende opvolging.
               </p>
               <MagneticButton
-                href="https://app.link2talent.nl"
+                href="https://calendly.com/link2talent"
                 className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl bg-[#007BFF] hover:bg-[#0066d6] text-white font-semibold text-sm tracking-tight transition-colors duration-200"
               >
-                Start direct in de app <ArrowRight size={15} weight="bold" />
+                Plan een strategiegesprek <ArrowRight size={15} weight="bold" />
               </MagneticButton>
             </div>
           </div>
@@ -96,7 +99,12 @@ export default function DienstenPage() {
                     </div>
                     <p className="text-[#007BFF] text-xs font-semibold tracking-[0.18em] uppercase mb-3">{s.subtitle}</p>
                     <h2 className="text-[1.8rem] md:text-[2.2rem] font-bold tracking-tighter leading-[1.1] text-[#09090b] mb-4">{s.title}</h2>
-                    <p className="text-[#4f4f4f] text-[0.95rem] leading-relaxed mb-6">{s.description}</p>
+                    {s.description.split("\n\n").map((para, pi) => (
+                      <p key={pi} className="text-[#4f4f4f] text-[0.95rem] leading-relaxed mb-4">{para}</p>
+                    ))}
+                    {s.preItems && (
+                      <p className="text-[#09090b] font-medium text-[0.95rem] mb-3">{s.preItems}</p>
+                    )}
                     <div className="flex flex-col gap-3 mb-6">
                       {s.items.map((item) => (
                         <div key={item} className="flex items-start gap-3">
@@ -129,7 +137,7 @@ export default function DienstenPage() {
                 <span className="text-[#007BFF] text-xs font-semibold tracking-[0.18em] uppercase">Hoe het werkt</span>
               </div>
               <h2 className="text-[2.2rem] md:text-[3rem] font-bold tracking-tighter leading-[1.08] text-white">
-                Van aanvraag tot actieve salescapaciteit
+                Van aanvraag tot actieve salescapaciteit in je team:
               </h2>
             </ScrollReveal>
             <div className="grid md:grid-cols-4 gap-4">
@@ -160,16 +168,12 @@ export default function DienstenPage() {
                   <span className="text-[#007BFF] text-xs font-semibold tracking-[0.18em] uppercase">Waarom dit werkt</span>
                 </div>
                 <h2 className="text-[2.2rem] md:text-[3rem] font-bold tracking-tighter leading-[1.08] text-[#09090b] mb-6">
-                  Traditioneel hiring is traag en risicovol
+                  Traditioneel hiring is traag en risicovol. Wij draaien het om:
                 </h2>
-                <p className="text-[#4f4f4f] text-[0.95rem] leading-relaxed mb-8">
-                  Wij draaien het om. Je bouwt een salesmachine die werkt, zonder losse processen of gedoe.
-                </p>
-                <div className="flex flex-col gap-4">
+                <div className="flex flex-col gap-4 mb-6">
                   {[
                     { from: "Geen CV's", to: "directe matches" },
                     { from: "Geen lange processen", to: "direct starten" },
-                    { from: "Geen hoge vaste kosten", to: "flexibel opschalen" },
                     { from: "Alles via één systeem", to: "app beheert contract, betaling en communicatie" },
                   ].map((item) => (
                     <div key={item.from} className="flex items-center gap-4 rounded-xl p-4" style={{ background: "#ffffff", border: "1px solid rgba(0,0,0,0.08)" }}>
@@ -179,12 +183,40 @@ export default function DienstenPage() {
                     </div>
                   ))}
                 </div>
-                <div className="mt-10">
+                <p className="text-[#4f4f4f] text-[0.95rem] leading-relaxed mb-10">
+                  Resultaat: Je bouwt een salesmachine die werkt, zonder losse processen of gedoe.
+                </p>
+              </div>
+            </ScrollReveal>
+          </div>
+        </section>
+
+        {/* Start vandaag CTA */}
+        <section className="relative bg-[#08080f] py-28 md:py-36 overflow-hidden">
+          <div className="absolute inset-0 pointer-events-none" style={{
+            backgroundImage: "radial-gradient(circle, rgba(255,255,255,0.045) 1px, transparent 1px)",
+            backgroundSize: "32px 32px",
+          }} />
+          <div className="relative max-w-[1320px] mx-auto px-6 md:px-10">
+            <ScrollReveal>
+              <div className="relative rounded-[2rem] bg-[#007BFF] overflow-hidden px-10 md:px-20 py-20 md:py-24 text-center">
+                <div className="absolute inset-0 pointer-events-none" style={{
+                  backgroundImage: "radial-gradient(circle, rgba(255,255,255,0.07) 1px, transparent 1px)",
+                  backgroundSize: "28px 28px",
+                }} />
+                <div className="relative">
+                  <p className="text-white/70 text-xs font-semibold tracking-[0.2em] uppercase mb-5">Start vandaag</p>
+                  <h2 className="text-[2rem] md:text-[2.8rem] font-bold tracking-tighter leading-[1.08] text-white mb-5 max-w-[600px] mx-auto">
+                    Blijf je zelf alles doen of bouw een team dat voor je werkt?
+                  </h2>
+                  <p className="text-white/75 text-[0.95rem] leading-relaxed mb-10 max-w-[520px] mx-auto">
+                    Start in de app, maak een account aan en voeg binnen 14 dagen salescapaciteit toe aan je bedrijf.
+                  </p>
                   <MagneticButton
-                    href="https://app.link2talent.nl"
-                    className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl bg-[#007BFF] hover:bg-[#0066d6] text-white font-semibold text-sm tracking-tight transition-colors duration-200"
+                    href="https://calendly.com/link2talent"
+                    className="inline-flex items-center gap-2.5 px-7 py-4 rounded-xl bg-white hover:bg-white/90 text-[#007BFF] font-bold text-sm tracking-tight transition-colors duration-200"
                   >
-                    Start direct in de app <ArrowRight size={15} weight="bold" />
+                    Plan een strategiegesprek <ArrowRight size={15} weight="bold" />
                   </MagneticButton>
                 </div>
               </div>

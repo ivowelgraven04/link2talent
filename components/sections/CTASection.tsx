@@ -25,10 +25,10 @@ export default function CTASection() {
                 Start vandaag en voeg binnen 14 dagen salescapaciteit toe aan je bedrijf.
               </p>
               <MagneticButton
-                href="https://app.link2talent.nl"
+                href="https://calendly.com/link2talent"
                 className="inline-flex items-center gap-2.5 px-7 py-4 rounded-xl bg-white hover:bg-white/90 text-[#007BFF] font-bold text-sm tracking-tight transition-colors duration-200"
               >
-                Start in de app <ArrowRight size={15} weight="bold" />
+                Plan een strategiegesprek <ArrowRight size={15} weight="bold" />
               </MagneticButton>
             </div>
           </div>

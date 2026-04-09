@@ -81,10 +81,10 @@ export default function ServicesSection() {
         </div>
         <ScrollReveal className="mt-12 text-center">
           <MagneticButton
-            href="https://app.link2talent.nl"
+            href="https://calendly.com/link2talent"
             className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl bg-[#007BFF] hover:bg-[#0066d6] text-white font-semibold text-sm tracking-tight transition-colors duration-200"
           >
-            Start direct in de app <ArrowRight size={15} weight="bold" />
+            Plan een strategiegesprek <ArrowRight size={15} weight="bold" />
           </MagneticButton>
         </ScrollReveal>
       </div>

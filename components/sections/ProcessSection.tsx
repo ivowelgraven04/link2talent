@@ -10,8 +10,8 @@ const steps = [
   {
     num: "02",
     title: "Match",
-    week: "Week 1–2",
-    desc: "Je wordt gekoppeld aan een geschikte remote setter op basis van skills, ervaring en beschikbaarheid.",
+    week: "Week 1",
+    desc: "Je wordt gekoppeld aan een geschikte remote setter. Op basis van skills, ervaring en beschikbaarheid.",
   },
   {
     num: "03",
@@ -23,7 +23,7 @@ const steps = [
     num: "04",
     title: "Opschalen",
     week: "Vanaf week 3",
-    desc: "Meer volume? Dan schaal je simpel op met extra capaciteit. Afspraken stromen in je agenda.",
+    desc: "Meer volume? Dan schaal je simpel op met extra capaciteit.",
   },
 ];
 

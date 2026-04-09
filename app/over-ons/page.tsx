@@ -14,8 +14,9 @@ export const metadata: Metadata = {
 const team = [
   {
     name: "Demi",
+    label: "Co-founder",
     photo: "/team-demi.png",
-    role: "Co-founder — de commerciële motor",
+    role: "de commerciële motor",
     description:
       "Ik zorg dat opdrachtgevers precies krijgen wat ze nodig hebben. Geen eindeloos zoeken, geen losse gesprekken. Via de app zie je direct de juiste kandidaten en plan je meteen de matches.",
     values: [
@@ -23,11 +24,14 @@ const team = [
       "Snel de juiste commerciële talenten vinden",
       "Vertrouwd contactpunt via de app",
     ],
+    cta: "Plan een strategiegesprek",
+    ctaHref: "https://calendly.com/link2talent",
   },
   {
     name: "Anne-Roos",
+    label: "Co-founder",
     photo: "/team-anne-roos.png",
-    role: "Co-founder — de kandidaten-partner",
+    role: "de kandidaten-partner",
     description:
       "Ik help bedrijven en professionals elkaar makkelijk te vinden. Ik ben er voor vragen en denk mee. We maken het makkelijk om de juiste match te vinden, met de persoonlijke aandacht die nodig is om het echt goed te laten werken.",
     values: [
@@ -35,11 +39,14 @@ const team = [
       "Een community waarin iedereen elkaar versterkt",
       "Persoonlijke aandacht, ook in een digitaal platform",
     ],
+    cta: "Plan een strategiegesprek",
+    ctaHref: "https://calendly.com/link2talent",
   },
   {
     name: "Lodewijk",
+    label: "Partner",
     photo: "/team-lodewijk.png",
-    role: "Partner — de software-expert",
+    role: "de software-expert",
     description:
       "Ik zorg dat onze technologie soepel, veilig en gebruiksvriendelijk werkt zodat jij zonder gedoe kunt verbinden, samenwerken en groeien. Alles wat jij ziet, en wat op de achtergrond draait, is ontworpen voor een eenvoudige en efficiënte ervaring.",
     values: [
@@ -47,6 +54,8 @@ const team = [
       "Stabiele en veilige technologie",
       "Continue innovatie voor een betere gebruikerservaring",
     ],
+    cta: "Plan een strategiegesprek",
+    ctaHref: "https://calendly.com/link2talent",
   },
 ];
 
@@ -115,7 +124,7 @@ export default function OverOnsPage() {
                 </span>
               </div>
               <h2 className="text-[2.2rem] md:text-[3rem] font-bold tracking-tighter leading-[1.08] text-[#09090b]">
-                De mensen achter het platform
+                Meet the Co-founders
               </h2>
             </ScrollReveal>
 
@@ -135,19 +144,18 @@ export default function OverOnsPage() {
                         style={{ objectFit: "cover", objectPosition: "center top" }}
                         sizes="(max-width: 768px) 100vw, 33vw"
                       />
-                      {/* subtle gradient overlay at bottom */}
                       <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-white/20 to-transparent" />
                     </div>
 
                     {/* Content */}
                     <div className="flex flex-col gap-4 p-7 flex-1">
                       <div>
-                        <h3 className="text-[#09090b] font-bold text-xl tracking-tight">
-                          {member.name}
-                        </h3>
-                        <p className="text-[#007BFF] text-xs font-semibold tracking-[0.1em] uppercase mt-1">
-                          {member.role}
+                        <p className="text-[#007BFF] text-[0.7rem] font-semibold tracking-[0.15em] uppercase mb-1">
+                          Meet the {member.label}
                         </p>
+                        <h3 className="text-[#09090b] font-bold text-xl tracking-tight">
+                          {member.name} – {member.role}
+                        </h3>
                       </div>
                       <p className="text-[#4f4f4f] text-sm leading-relaxed flex-1">
                         {member.description}
@@ -156,6 +164,7 @@ export default function OverOnsPage() {
                         className="flex flex-col gap-2 pt-4"
                         style={{ borderTop: "1px solid rgba(0,0,0,0.06)" }}
                       >
+                        <p className="text-[#09090b] text-xs font-semibold mb-1">Waar ik voor {member.name === "Anne-Roos" ? "staat" : "sta"}:</p>
                         {member.values.map((v) => (
                           <div key={v} className="flex items-start gap-2.5">
                             <CheckCircle
@@ -167,6 +176,14 @@ export default function OverOnsPage() {
                           </div>
                         ))}
                       </div>
+                      <a
+                        href={member.ctaHref}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 text-[#007BFF] text-sm font-semibold hover:underline w-fit mt-2"
+                      >
+                        {member.cta} <ArrowRight size={13} weight="bold" />
+                      </a>
                     </div>
                   </div>
                 </ScrollReveal>
@@ -193,18 +210,21 @@ export default function OverOnsPage() {
                   {/* Content */}
                   <div className="p-8 flex flex-col justify-center gap-3">
                     <div>
-                      <h3 className="text-[#09090b] font-bold text-xl tracking-tight">
-                        Ivo Welgraven
-                      </h3>
-                      <p className="text-[#007BFF] text-xs font-semibold tracking-[0.1em] uppercase mt-1">
-                        Partner — De Proces Designers — onze webheld
+                      <p className="text-[#007BFF] text-[0.7rem] font-semibold tracking-[0.15em] uppercase mb-1">
+                        Meet the Partner
                       </p>
+                      <h3 className="text-[#09090b] font-bold text-xl tracking-tight">
+                        Ivo Welgraven – onze webheld
+                      </h3>
                     </div>
                     <p className="text-[#4f4f4f] text-sm leading-relaxed max-w-[560px]">
                       Ivo heeft deze hele website voor ons gemaakt via De Proces
                       Designers. Zonder hem had dit platform er niet zo strak en
                       gebruiksvriendelijk uitgezien. Een groot dank aan Ivo en zijn
                       team voor de perfecte samenwerking.
+                    </p>
+                    <p className="text-[#4f4f4f] text-sm">
+                      Shout-out: Ivo Welgraven via De Proces Designers
                     </p>
                     <a
                       href="https://deprocesdesigners.nl/"
@@ -244,7 +264,7 @@ export default function OverOnsPage() {
                   Wij zijn geen traditionele recruiters
                 </h2>
                 <p className="text-white/50 text-[0.95rem] leading-relaxed mb-8">
-                  Alles draait om resultaat en overzicht via de app.
+                  Alles draait om resultaat en overzicht via de app:
                 </p>
                 <div className="flex flex-col gap-3 mb-10">
                   {whyItems.map((item) => (
@@ -259,10 +279,10 @@ export default function OverOnsPage() {
                   ))}
                 </div>
                 <MagneticButton
-                  href="https://app.link2talent.nl"
+                  href="https://calendly.com/link2talent"
                   className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl bg-[#007BFF] hover:bg-[#0066d6] text-white font-semibold text-sm tracking-tight transition-colors duration-200"
                 >
-                  Start jouw eerste match <ArrowRight size={15} weight="bold" />
+                  Plan een strategiegesprek <ArrowRight size={15} weight="bold" />
                 </MagneticButton>
               </ScrollReveal>
               <ScrollReveal delay={0.15}>
@@ -276,19 +296,19 @@ export default function OverOnsPage() {
                     }}
                   />
                   <div className="relative">
-                    <p className="text-white/70 text-sm font-medium mb-3">
-                      Plan een gesprek of maak direct een account aan in de app
+                    <p className="text-white/70 text-sm font-medium mb-2">
+                      Start jouw eerste match nu
                     </p>
-                    <p className="text-white font-bold text-2xl tracking-tight mb-6">
-                      Voeg binnen 14 dagen salescapaciteit toe aan je team.
+                    <p className="text-white font-bold text-2xl tracking-tight mb-4">
+                      Plan een gesprek of maak direct een account aan in de app en voeg binnen 14 dagen salescapaciteit toe aan je team.
                     </p>
                     <a
-                      href="https://app.link2talent.nl"
+                      href="https://calendly.com/link2talent"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-white text-[#007BFF] font-bold text-sm hover:bg-white/90 transition-colors"
                     >
-                      Start in de app <ArrowRight size={14} weight="bold" />
+                      Plan een strategiegesprek <ArrowRight size={14} weight="bold" />
                     </a>
                   </div>
                 </div>
