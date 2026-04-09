@@ -19,9 +19,9 @@ export const metadata: Metadata = {
   description: "Wij leveren binnen 14 dagen een remote setter die direct gesprekken voor je inplant. Flexibele salescapaciteit via een seatmodel. Vanaf €295 per maand.",
   keywords: ["remote setter", "salescapaciteit", "recruitment", "Link2Talent", "Amsterdam"],
   icons: {
-    icon: "/favicon.png",
-    shortcut: "/favicon.png",
-    apple: "/favicon.png",
+    icon: "/icon.png",
+    shortcut: "/icon.png",
+    apple: "/icon.png",
   },
   openGraph: {
     type: "website",
