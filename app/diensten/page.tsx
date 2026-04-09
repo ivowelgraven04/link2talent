@@ -3,7 +3,7 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
 import MagneticButton from "@/components/MagneticButton";
-import { ArrowRight, UserCircle, Handshake, EnvelopeSimple, CheckCircle } from "@phosphor-icons/react/dist/ssr";
+import { ArrowRight, UserCircle, EnvelopeSimple, CheckCircle } from "@phosphor-icons/react/dist/ssr";
 
 export const metadata: Metadata = {
   title: "Diensten",
@@ -19,15 +19,6 @@ const services = [
     preItems: "Waar wij voor zorgen:",
     items: ["Direct inzetbare setters", "Flexibel op- en afschalen via de app", "Contract, betaling en communicatie op één plek"],
     result: "Gesprekken gepland, leads opgevolgd en jouw pipeline gevuld.",
-  },
-  {
-    icon: Handshake,
-    title: "Closers",
-    subtitle: "Op aanvraag",
-    description: "Wil je naast een setter ook iemand die deals afrondt? Wij koppelen je aan ervaren closers die passen bij je aanbod en team.",
-    preItems: null,
-    items: ["Direct beschikbare closers", "Integratie met de bestaande pipeline", "Volledige rapportage via de app"],
-    result: "Gesloten deals, sneller groeiend resultaat.",
   },
   {
     icon: EnvelopeSimple,
@@ -87,7 +78,7 @@ export default function DienstenPage() {
         </section>
 
         {/* Services */}
-        <section className="relative bg-[#f7f8fa] py-28 md:py-36">
+        <section id="remote-setters" className="relative bg-[#f7f8fa] py-28 md:py-36">
           <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#007BFF]/30 to-transparent" />
           <div className="max-w-[1320px] mx-auto px-6 md:px-10 flex flex-col gap-20">
             {services.map((s, i) => (
